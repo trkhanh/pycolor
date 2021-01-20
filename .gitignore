@@ -1,1 +1,11 @@
-__pycache__/setup.cpython-38.pyc
+dist/*
+pywal.egg-info/*
+*.pyc
+subprocess
+re
+build/*
+.coverage
+.vscode/*
+__pycache__/*
+modules
+env
