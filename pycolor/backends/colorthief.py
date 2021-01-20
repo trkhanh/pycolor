@@ -1,4 +1,3 @@
-
 """
 Generate a colorscheme using ColorThief.
 """

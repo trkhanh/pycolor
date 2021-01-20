@@ -5,7 +5,6 @@ subprocess
 re
 build/*
 .coverage
-.vscode/*
 __pycache__/*
 modules
 env
