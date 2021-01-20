@@ -1,0 +1,23 @@
+@startuml
+scale 2
+class Color {
+    +startTime: DateTime
+    +venue: string
+    +registrationClosed: boolean
+    ' COnvert a hex color to xrdb rgba.
+    +rgb()
+    ' Convert a hex color to xrdb rgba. 
+    +xrgba()
+    +rgba()
+    +decimal()
+    +decimal_strip()
+    +octal()
+    +strip()
+    +red()
+    +green()
+    +blue()
+    +lighten(%)
+    +darken(%)
+    +saturate(%)
+}
+@enduml
