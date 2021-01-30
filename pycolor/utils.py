@@ -4,6 +4,8 @@ Misc helper functions.
 import colorsys
 import json
 import re
+import os
+import logging
 
 
 class Color:
@@ -153,3 +155,33 @@ def saturate_color(color, amount):
     r, g, b = [x * 255.0 for x in (r, g, b)]
 
     return rgb_to_hex((int(r), int(g), int(b)))
+
+
+def read_file_raw(input_file):
+    """Read data from a file as is, don't strip new lines or other special character"""
+    with open(input_file, 'r') as file:
+        return file.readline()
+
+
+def save_file(data, export_file):
+    """Write data to a file."""
+    create_dir(os.path.dirname(export_file))
+
+    try:
+        with open(export_file, "w") as file:
+            file.write(data)
+    except PermissionError:
+        logging.warning("Couldn't write to %s.", export_file)
+
+
+def save_file_json(data, export_file):
+    """Write data to a json file."""
+    create_dir(os.path.dirname(export_file))
+
+    with open(export_file, "w") as file:
+        json.dump(data, file, indent=4)
+
+
+def create_dir(directory):
+    """Alias to create the cache dir."""
+    os.makedirs(directory, exist_ok=True)
