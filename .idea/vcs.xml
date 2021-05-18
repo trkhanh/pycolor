@@ -2,6 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pycolor.wiki" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/pycolor/modules/color-thief-py" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/wiki" vcs="Git" />
   </component>
 </project>
