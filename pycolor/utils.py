@@ -116,8 +116,8 @@ def rgb_to_hex(color):
     return "#%02x%02x%02x" % (*color,)
 
 
-def rbg_to_yiq(color):
-    """Sort a ist of colors."""
+def rgb_to_yiq(color):
+    """Sort a list of colors."""
     return colorsys.rgb_to_yiq(*hex_to_rgb(color))
 
 
@@ -185,3 +185,8 @@ def save_file_json(data, export_file):
 def create_dir(directory):
     """Alias to create the cache dir."""
     os.makedirs(directory, exist_ok=True)
+
+
+def rbg_to_yiq(color):
+    """Sort a list of color"""
+    return colorsys.rgb_to_yiq(*hex_to_rgb(color))
