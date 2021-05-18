@@ -12,7 +12,7 @@ except ImportError:
     logging.error("Try another backend. (wal --backend)")
     sys.exit(1)
 
-from ..utils import rgb_to_hex, rgb_to_yiq, lighten_color, darken_color
+from .. import utils
 
 
 def gen_colors(img):
@@ -35,26 +35,26 @@ def gen_colors(img):
             logging.warning("ColorThief couldn't generate a palette.")
             logging.warning("Trying a larger palette size %s", 8 + i)
 
-    return [rgb_to_hex(color) for color in raw_colors]
+    return [utils.rgb_to_hex(color) for color in raw_colors]
 
 
 def adjust(cols, light):
     """Create palette."""
-    cols.sort(key=rgb_to_yiq)
+    cols.sort(key=utils.rgb_to_yiq)
     raw_colors = [*cols, *cols]
 
     if light:
-        raw_colors[0] = lighten_color(cols[0], 0.90)
-        raw_colors[7] = darken_color(cols[0], 0.75)
+        raw_colors[0] = utils.lighten_color(cols[0], 0.90)
+        raw_colors[7] = utils.darken_color(cols[0], 0.75)
 
      else:
         for color in raw_colors:
-            color = util.lighten_color(color, 0.40)
+            color = utils.lighten_color(color, 0.40)
 
-            raw_colors[0] = util.darken_color(cols[0], 0.80)
-            raw_colors[7] = util.lighten_color(cols[0], 0.60)
+            raw_colors[0] = utils.darken_color(cols[0], 0.80)
+            raw_colors[7] = utils.lighten_color(cols[0], 0.60)
 
-    raw_colors[8] = lighten_color(cols[0], 0.20)
+    raw_colors[8] = utils.lighten_color(cols[0], 0.20)
     raw_colors[15] = raw_colors[7]
 
     return raw_colors
